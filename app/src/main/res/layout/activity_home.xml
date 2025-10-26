@@ -59,7 +59,7 @@
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
+        android:id="@+id/btnSort"
         android:layout_width="190dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
@@ -101,7 +101,7 @@
         android:layout_marginTop="8dp"
         android:clipToPadding="false"
         android:scrollbars="vertical"
-        app:layout_constraintTop_toBottomOf="@id/constraintLayout"
+        app:layout_constraintTop_toBottomOf="@id/btnSort"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -1,8 +1,10 @@
 package com.ramazan.testproject.view.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -15,7 +17,7 @@ class CoursesAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_course, parent, false)
+            .inflate(R.layout.item_courses, parent, false)
         return VH(view)
     }
 
@@ -25,13 +27,25 @@ class CoursesAdapter(
     }
 
     class VH(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val title: TextView = itemView.findViewById(R.id.title)
-        private val author: TextView = itemView.findViewById(R.id.author)
+        private val title: TextView = itemView.findViewById(R.id.tvTitle)
+        private val text: TextView = itemView.findViewById(R.id.tvText)
+        private val price: TextView = itemView.findViewById(R.id.tvPrice)
+        private val rate: TextView = itemView.findViewById(R.id.tvRate)
+        private val startDate: TextView = itemView.findViewById(R.id.tvStartDate)
+        private val ibFavorite: ImageButton = itemView.findViewById(R.id.ibFavorite)
 
+        @SuppressLint("SetTextI18n")
         fun bind(item: Course, favorite: Boolean, onToggle: (Long) -> Unit) {
-            title.text = (if (favorite) "★ " else "☆ ") + item.title
-            author.text = item.text // или item.author, если есть
-            itemView.setOnClickListener { onToggle(item.id) }
+            title.text = item.title
+            text.text = item.text
+            price.text = item.price + " ₽"
+            rate.text = item.rate
+            startDate.text = item.startDate
+            ibFavorite.setImageResource(
+                if (favorite) R.drawable.ic_favorite else R.drawable.ic_favorite_green
+            )
+            ibFavorite.setOnClickListener { onToggle(item.id) }
         }
     }
 }
+

@@ -15,7 +15,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <!-- Верхняя часть с картинкой -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="114dp">
@@ -25,11 +24,13 @@
                 android:layout_height="match_parent"
                 android:src="@drawable/bg_image"
                 android:scaleType="centerCrop"
-                android:contentDescription="TODO" />
+                android:contentDescription="TODO"
+                />
 
             <ImageButton
-                android:layout_width="28dp"
-                android:layout_height="28dp"
+                android:id="@+id/ibFavorite"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_margin="8dp"
                 android:background="@drawable/rounded_image_button"
                 android:contentDescription="TODO"
@@ -63,9 +64,9 @@
                         android:src="@drawable/ic_star_green" />
 
                     <TextView
+                        android:id="@+id/tvRate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="4.5"
                         android:fontFamily="@font/roboto_regular"
                         android:textColor="@android:color/white"
                         android:textSize="12sp" />
@@ -85,9 +86,9 @@
                     android:paddingVertical="4dp">
 
                     <TextView
+                        android:id="@+id/tvStartDate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="26 окт 2025"
                         android:fontFamily="@font/roboto_regular"
                         android:textColor="@android:color/white"
                         android:textSize="11sp" />
@@ -103,10 +104,9 @@
             android:layout_margin="16dp">
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/tvTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Java-разработчик с нуля"
                 android:textSize="16sp"
                 android:textColor="@color/title_color"
                 android:fontFamily="@font/roboto_medium"
@@ -115,7 +115,7 @@
                 app:layout_constraintEnd_toEndOf="parent" />
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/tvText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:maxLines="2"
@@ -123,15 +123,14 @@
                 android:textSize="12sp"
                 android:textColor="@color/text_description"
                 android:fontFamily="@font/roboto_regular"
-                android:text="Освойте backend-разработку и программирование на Java, фреймворки Spring и Maven, работу с базами данных и API. Создайте свой собственный проект, собрав портфолио и став востребованным специалистом для любой IT компании."
-                app:layout_constraintTop_toBottomOf="@id/textView4"
+                app:layout_constraintTop_toBottomOf="@id/tvTitle"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
 
             <TextView
+                android:id="@+id/tvPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="999 ₽"
                 android:textSize="16sp"
                 android:textColor="@color/title_color"
                 android:fontFamily="@font/roboto_medium"
