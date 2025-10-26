@@ -72,7 +72,7 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/rubik_semi_bold"
+            android:fontFamily="@font/roboto_semi_bold"
             android:text="@string/filter_title_date_added"
             android:textColor="@color/btn_registration_color"
             android:textSize="14sp"

@@ -1,10 +1,17 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Закруглённый фон -->
     <item>
         <shape android:shape="rectangle">
-            <solid android:color="@color/text_field_color" />
+            <solid android:color="#8032333A" />
             <corners android:radius="16dp" />
         </shape>
     </item>
 
-    <item android:drawable="@drawable/bg_image" />
+    <!-- Картинка с отступами -->
+    <item
+        android:drawable="@drawable/bg_image"
+        android:left="0dp"
+        android:top="0dp"
+        android:right="0dp"
+        android:bottom="0dp" />
 </layer-list>

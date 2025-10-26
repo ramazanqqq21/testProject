@@ -13,7 +13,7 @@
     <string name="btn_start_course">Начать курс</string>
     <string name="btn_to_platform">Перейти на платформу</string>
     <string name="filter_title_date_added">По дате добавления</string>
-    <string name="btn_more">Подробнее</string>
+    <string name="btn_more">Подробнее ➜</string>
     <string name="edt_hint_text_email">example@gmail.com</string>
     <string name="edt_hint_text_pass">Введите пароль</string>
     <string name="description_vk">button to VK</string>
