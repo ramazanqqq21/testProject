@@ -43,6 +43,7 @@ android {
 }
 
 dependencies {
+    dependencies { implementation(project(":data:network")) }
     implementation(project(":domain"))
     implementation(project(":data"))
 

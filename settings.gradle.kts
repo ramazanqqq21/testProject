@@ -23,3 +23,4 @@ rootProject.name = "testProject"
 include(":app")
 include(":data")
 include(":domain")
+include(":data:network")
