@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">testProject</string>
+    <string name="title_sign_in">Вход</string>
+    <string name="title_email">Email</string>
+    <string name="title_password">Пароль</string>
+    <string name="btn_sign_in">Вход</string>
+    <string name="title_not_account">Нету аккаунта?</string>
+    <string name="btn_registration">Регитрация</string>
+    <string name="title_forgot_pass">Забыл пароль</string>
+    <string name="btn_main">Главная</string>
+    <string name="btn_favorites">Избранное</string>
+    <string name="btn_account">Аккаунт</string>
+    <string name="btn_start_course">Начать курс</string>
+    <string name="btn_to_platform">Перейти на платформу</string>
+    <string name="filter_title_date_added">По дате добавления</string>
+    <string name="btn_more">Подробнее</string>
+    <string name="edt_hint_text_email">example@gmail.com</string>
+    <string name="edt_hint_text_pass">Введите пароль</string>
+    <string name="description_vk">button to VK</string>
+    <string name="description_ok">button to OK</string>
+
 </resources>
