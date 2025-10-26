@@ -6,7 +6,7 @@ import com.ramazan.domain.model.Course
 import com.ramazan.domain.usecase.GetFavoriteIdsFlow
 import com.ramazan.domain.usecase.ToggleFavorite
 import dagger.hilt.android.lifecycle.HiltViewModel
-import jakarta.inject.Inject
+import javax.inject.Inject
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -27,12 +27,10 @@ class MainViewModel @Inject constructor(
             Course(4, "Clean Architecture", "Robert"),
         )
     )
-    val uiState: StateFlow<UiState> = combine(
-        courses,
-        observeFavs()) {
-                       list, favs -> UiState(list, favs)
-    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), UiState())
+    val uiState: StateFlow<UiState> = combine(courses, observeFavs()) { list, favs -> UiState(list, favs) }
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), UiState())
     fun onToggleFavorite(id: Long) { viewModelScope.launch { toggle(id) } }
 }
+
 
 data class UiState(val courses: List<Course> = emptyList(), val favoriteIds: Set<Long> = emptySet())

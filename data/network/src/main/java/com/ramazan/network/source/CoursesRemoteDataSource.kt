@@ -3,7 +3,7 @@ package com.ramazan.network.source
 import com.ramazan.domain.model.Course
 import com.ramazan.network.api.CoursesApi
 import com.ramazan.network.mapper.toDomain
-import jakarta.inject.Inject
+import javax.inject.Inject
 
 class CoursesRemoteDataSource @Inject constructor(
     private val api: CoursesApi

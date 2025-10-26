@@ -10,8 +10,9 @@ import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import jakarta.inject.Singleton
+import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -24,12 +25,17 @@ abstract class BindingsModule {
 @Module
 @InstallIn(SingletonComponent::class)
 object ProvidersModule {
+
     @Provides
     @Singleton
-    fun provideDb(ctx: Context): AppDatabase = Room.databaseBuilder(
+    fun provideDb(
+        @ApplicationContext ctx: Context
+    ): AppDatabase = Room.databaseBuilder(
         ctx,
         AppDatabase::class.java,
-        "app.db")
-        .build()
-    @Provides fun provideFavoritesDao(db: AppDatabase): FavoritesDao = db.favoritesDao()
+        "app.db"
+    ).build()
+
+    @Provides
+    fun provideFavoritesDao(db: AppDatabase): FavoritesDao = db.favoritesDao()
 }

@@ -3,8 +3,8 @@ package com.ramazan.data.repository
 import com.ramazan.data.db.FavoriteEntity
 import com.ramazan.data.db.FavoritesDao
 import com.ramazan.domain.repository.FavoritesRepository
-import jakarta.inject.Inject
-import jakarta.inject.Singleton
+import javax.inject.Inject
+import javax.inject.Singleton
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
