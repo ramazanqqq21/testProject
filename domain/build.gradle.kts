@@ -43,4 +43,5 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     implementation(platform("org.jetbrains.kotlin:kotlin-bom:2.0.20"))
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0")
+    implementation("javax.inject:javax.inject:1")
 }
