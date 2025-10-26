@@ -11,17 +11,23 @@ android {
         version = release(36)
     }
 
+
     defaultConfig {
         minSdk = 24
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
 
-        javaCompileOptions.annotationProcessorOptions {
-            arguments += mapOf("room.schemaLocation" to "$projectDir/schemas")
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += mapOf("room.schemaLocation" to "$projectDir/schemas")
+            }
         }
     }
 
+    sourceSets {
+        getByName("androidTest").assets.srcDir(files("$projectDir/schemas"))
+    }
     buildTypes {
         release {
             isMinifyEnabled = false
