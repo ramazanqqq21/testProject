@@ -38,6 +38,9 @@ android {
 
 dependencies {
     implementation(project(":domain"))
+
+    implementation("com.squareup.retrofit2:converter-scalars:2.9.0")
+    implementation("com.google.code.gson:gson:2.10.1")
     implementation("com.squareup.retrofit2:retrofit:2.11.0")
     implementation("com.squareup.retrofit2:converter-moshi:2.11.0")
     implementation("com.squareup.okhttp3:okhttp:4.12.0")

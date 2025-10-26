@@ -1,40 +1,24 @@
 package com.ramazan.network.di
 
 import com.ramazan.network.api.CoursesApi
-import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import javax.inject.Singleton
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
-import retrofit2.converter.moshi.MoshiConverterFactory
+import retrofit2.converter.scalars.ScalarsConverterFactory
+import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
-    private const val BASE_URL = "https://api.example.com/"
-
-
-    @Provides
-    @Singleton
-    fun provideOkHttp(): OkHttpClient = OkHttpClient.Builder()
-        .addInterceptor(HttpLoggingInterceptor().apply {
-            level = HttpLoggingInterceptor.Level.BASIC }).build()
-
-
-    @Provides @Singleton fun provideMoshi(): Moshi = Moshi.Builder().build()
-
-
-    @Provides @Singleton fun provideRetrofit(client: OkHttpClient, moshi: Moshi): Retrofit = Retrofit.Builder()
-        .baseUrl(BASE_URL)
-        .client(client)
-        .addConverterFactory(MoshiConverterFactory.create(moshi))
+    @Provides @Singleton
+    fun provideRetrofit(): Retrofit = Retrofit.Builder()
+        .baseUrl("https://drive.usercontent.google.com/")
+        .addConverterFactory(ScalarsConverterFactory.create())
         .build()
 
-
-    @Provides @Singleton fun provideCoursesApi(retrofit: Retrofit): CoursesApi =
+    @Provides @Singleton
+    fun provideCoursesApi(retrofit: Retrofit): CoursesApi =
         retrofit.create(CoursesApi::class.java)
 }
