@@ -15,15 +15,14 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
-    private const val BASE_URL = "https://api.example.com/" // TODO: заменить на реальный
+    private const val BASE_URL = "https://api.example.com/"
 
 
     @Provides
     @Singleton
     fun provideOkHttp(): OkHttpClient = OkHttpClient.Builder()
         .addInterceptor(HttpLoggingInterceptor().apply {
-            level = HttpLoggingInterceptor.Level.BASIC })
-        .build()
+            level = HttpLoggingInterceptor.Level.BASIC }).build()
 
 
     @Provides @Singleton fun provideMoshi(): Moshi = Moshi.Builder().build()

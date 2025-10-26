@@ -13,16 +13,25 @@ class CoursesAdapter(private val onToggle: (Long) -> Unit) : RecyclerView.Adapte
     private var favs: Set<Long> = emptySet()
 
 
-    fun submit(items: List<Course>, favoriteIds: Set<Long>) { data = items; favs = favoriteIds; notifyDataSetChanged() }
+    fun submit(items: List<Course>, favoriteIds: Set<Long>) {
+        data = items;
+        favs = favoriteIds;
+        notifyDataSetChanged()
+    }
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_course, parent, false)
+        val view = LayoutInflater
+            .from(parent.context)
+            .inflate(R.layout.item_course, parent, false)
         return VH(view)
     }
-    override fun onBindViewHolder(holder: VH, position: Int) = holder.bind(data[position], favs.contains(data[position].id), onToggle)
-    override fun getItemCount() = data.size
+    override fun onBindViewHolder(holder: VH, position: Int) = holder
+        .bind(data[position],
+            favs.contains(data[position].id),
+            onToggle)
 
+    override fun getItemCount() = data.size
 
     class VH(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val title: TextView = itemView.findViewById(R.id.title)
