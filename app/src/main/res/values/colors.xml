@@ -12,5 +12,7 @@
     <color name="text_description">#80F2F2F3</color>
     <color name="line_color">#4D555E</color>
     <color name="hint_text_color">#736D6D</color>
-
+    <color name="bg_nav_bar">#24252A</color>
+    <color name="active_ic_bg_color">#32333A</color>
+    <color name="active_color">#12B956</color>
 </resources>

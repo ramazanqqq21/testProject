@@ -53,7 +53,9 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.6")
 
 
-    implementation("com.google.dagger:hilt-android:2.52");
+    implementation("com.google.dagger:hilt-android:2.52")
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx);
     kapt("com.google.dagger:hilt-compiler:2.52")
 
 
