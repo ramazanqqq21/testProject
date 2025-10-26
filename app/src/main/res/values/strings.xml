@@ -18,5 +18,9 @@
     <string name="edt_hint_text_pass">Введите пароль</string>
     <string name="description_vk">button to VK</string>
     <string name="description_ok">button to OK</string>
+    <string name="search_label_hint_text">Search courses...</string>
+    <string name="search_icon">search icon</string>
+    <string name="filter_discription">filter_discription</string>
+
 
 </resources>
