@@ -2,6 +2,6 @@
     android:shape="rectangle">
 
     <solid android:color="@color/btn_sign_in_color" />
-
     <corners android:radius="30dp" />
+
 </shape>
