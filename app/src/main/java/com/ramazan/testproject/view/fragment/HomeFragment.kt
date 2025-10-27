@@ -42,6 +42,8 @@ class HomeFragment : Fragment(R.layout.activity_home) {
 
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.sortedCourses.collect { list ->
+                    println(list)
+                    println(list.size)
                     adapter.submitList(list)
                 }
             }

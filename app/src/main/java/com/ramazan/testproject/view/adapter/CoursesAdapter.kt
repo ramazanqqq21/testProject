@@ -1,11 +1,14 @@
 package com.ramazan.testproject.view.adapter
 
 import android.annotation.SuppressLint
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
+import androidx.core.content.ContextCompat
+import androidx.core.graphics.drawable.toDrawable
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.ramazan.domain.model.Course
@@ -32,6 +35,8 @@ class CoursesAdapter(
         private val price: TextView = itemView.findViewById(R.id.tvPrice)
         private val rate: TextView = itemView.findViewById(R.id.tvRate)
         private val startDate: TextView = itemView.findViewById(R.id.tvStartDate)
+
+        private lateinit var publishDate: String
         private val ibFavorite: ImageButton = itemView.findViewById(R.id.ibFavorite)
 
         @SuppressLint("SetTextI18n")
@@ -41,9 +46,17 @@ class CoursesAdapter(
             price.text = item.price + " ₽"
             rate.text = item.rate
             startDate.text = item.startDate
-            ibFavorite.setImageResource(
-                if (favorite) R.drawable.ic_favorite else R.drawable.ic_favorite_green
-            )
+            publishDate = item.publishDate
+
+            val drawable = ContextCompat.getDrawable(itemView.context, R.drawable.ic_favorite)?.mutate()
+            val color = if (favorite) {
+                Color.parseColor("#12B956")
+            } else {
+                Color.parseColor("#FFFFFFFF")
+            }
+            drawable?.setTint(color)
+            ibFavorite.setImageDrawable(drawable)
+
             ibFavorite.setOnClickListener { onToggle(item.id) }
         }
     }
