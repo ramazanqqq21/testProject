@@ -1,6 +1,7 @@
 package com.ramazan.testproject.view.fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -38,6 +39,7 @@ class HomeFragment : Fragment(R.layout.activity_home) {
         }
 
         viewLifecycleOwner.lifecycleScope.launch {
+
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.sortedCourses.collect { list ->
                     adapter.submitList(list)
