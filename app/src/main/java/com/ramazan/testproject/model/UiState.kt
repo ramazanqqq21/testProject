@@ -4,5 +4,5 @@ import com.ramazan.domain.model.Course
 
 data class UiState(
     val courses: List<Course> = emptyList(),
-    val favoriteIds: Set<Long> = emptySet()
+    val favs: Set<Long> = emptySet()
 )

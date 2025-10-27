@@ -26,16 +26,21 @@ class FavoritesFragment : Fragment(R.layout.activity_favorites) {
 
         adapter = CoursesAdapter(onToggle = viewModel::onToggleFavorite)
         val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView)
-        recyclerView.layoutManager = LinearLayoutManager(requireContext()) // ← вот это
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = adapter
 
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.uiState.collect { state ->
-                    val liked = state.courses.filter { it.hasLike }
+                    val favs = if (state.favs is Set<Long>) state.favs else state.favs.toHashSet()
+                    val liked = state.courses
+                        .map { it.copy(hasLike = it.id in favs) }
+                        .filter { it.hasLike }
                     adapter.submitList(liked)
                 }
             }
         }
+
+
     }
 }
