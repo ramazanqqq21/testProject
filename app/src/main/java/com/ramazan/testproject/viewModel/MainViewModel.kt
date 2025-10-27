@@ -26,12 +26,11 @@ class MainViewModel @Inject constructor(
     private val courses = MutableStateFlow<List<Course>>(emptyList())
     private val sortDescending = MutableStateFlow(true)
 
-    val sortedCourses: StateFlow<List<Course>> = combine(courses, sortDescending) { list, desc ->
-        list.sortedBy { it.publishDate }.let {
-            if (desc) it.reversed() else it
-        }
+    val sortedCourses: StateFlow<List<Course>> = combine(courses, sortDescending, observeFavs()) { list, desc, favs ->
+        list.map { it.copy(hasLike = favs.contains(it.id)) }
+            .sortedBy { it.startDate }
+            .let { if (desc) it.reversed() else it }
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyList())
-
     fun sortByDate(descending: Boolean) {
         sortDescending.value = descending
     }
@@ -48,8 +47,14 @@ class MainViewModel @Inject constructor(
     }
 
     fun onToggleFavorite(id: Long) {
-        viewModelScope.launch { toggle(id) }
+        viewModelScope.launch {
+            toggle(id)
+
+            val updated = repository.loadCourses()
+            courses.value = updated
+        }
     }
+
 
 
 
